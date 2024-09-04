@@ -1,8 +1,8 @@
-export default function ToDoItem({ item, index, handleComplete }) {
-	return <>
-		<div
-			className={`text-bg-primary col-md-4 mt-5 ${item.completed ? 'completed' : ''}`}
-		>
+import React from 'react'
+
+export default function ToDoItem({ item, index, handleComplete, onDelete }) {
+	return (
+		<div className={`text-bg-primary col-md-4 mt-5 ${item.completed ? 'completed' : ''}`}>
 			<h3 className='ms-5' style={{ textDecoration: item.completed ? 'line-through' : 'none' }}>
 				Name: {item.name}
 			</h3>
@@ -16,8 +16,8 @@ export default function ToDoItem({ item, index, handleComplete }) {
 			>
 				{item.completed ? 'Cancel' : 'Complete'}
 			</button>
+			<button className='btn btn-warning ms-4' onClick={() => onDelete(index)}>Delete</button>
 		</div>
-	</>
-
+	)
 }
 

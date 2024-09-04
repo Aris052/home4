@@ -1,10 +1,9 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import { ToDoContext } from './context'
 
-export default function AddToDo({ addTodo }) {
-	const [user, setUser] = useState({
-		name: "",
-		gorc: ""
-	})
+export default function AddToDo() {
+	const { addTodo } = useContext(ToDoContext)
+	const [user, setUser] = useState({})
 
 	const handleSubmit = event => {
 		event.preventDefault()
